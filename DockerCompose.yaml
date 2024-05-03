@@ -1,0 +1,9 @@
+version: '3'
+services:
+  g2pdeep:
+    build: .
+    volumes:
+      - .:/app
+      - ./data:/app/data
+      - ./results:/app/results
+    command: python train.py --data_dir ./data/SoyNAM --result_dir ./results --dataset_type height
