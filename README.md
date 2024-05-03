@@ -31,6 +31,17 @@ python train.py --data_dir ./data/SoyNAM --result_dir ./results --dataset_type p
 python train.py --data_dir ./data/SoyNAM --result_dir ./results --dataset_type yield
 ```
 
+##Running the Model through Docker
+
+# Build the Docker Image:
+docker build -t g2pdeep .
+
+# Running the Docker Container:
+docker run -v $(pwd)/data:/app/data -v $(pwd)/results:/app/results g2pdeep
+
+#Override default command (eg: changing the dataset type)
+docker run -v $(pwd)/data:/app/data -v $(pwd)/results:/app/results g2pdeep python train.py --data_dir ./data/SoyNAM --result_dir ./results --dataset_type oil
+
 ## Authors
 
 * **Shuai Zeng** - *University of Missouri, Columbia MO, USA*
